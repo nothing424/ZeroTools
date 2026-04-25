@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+<head>
+  <!-- ─── Charset & Viewport ─────────────────────────────── -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- ─── Primary Metadata ───────────────────────────────── -->
+  <title>ZeroSozoo - All-in-One Liquid Tools</title>
+  <meta name="description" content="ZeroSozoo — Premium All-in-One Web Suite. Music Player, QR Studio, TikTok & YouTube Downloader, AI Chat, File Upload, and Deploy Simulator. All wrapped in a stunning Liquid Glass aesthetic." />
+  <meta name="keywords"    content="ZeroSozoo, liquid glass, QR generator, TikTok downloader, YouTube downloader, music player, AI chat, file upload, web tools" />
+  <meta name="author"      content="ZeroSozoo" />
+  <meta name="theme-color" content="#0a0b0f" />
+  <meta name="color-scheme" content="dark" />
+
+  <!-- ─── Favicon ────────────────────────────────────────── -->
+  <link rel="icon"             type="image/png" href="https://files.catbox.moe/nae4ol.png" />
+  <link rel="apple-touch-icon"                  href="https://files.catbox.moe/nae4ol.png" />
+  <link rel="shortcut icon"    type="image/png" href="https://files.catbox.moe/nae4ol.png" />
+
+  <!-- ─── Open Graph (Social Preview) ────────────────────── -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="ZeroSozoo - All-in-One Liquid Tools" />
+  <meta property="og:description" content="Premium All-in-One Web Suite dengan Liquid Glass aesthetic. Music Player, QR Studio, TikTok & YouTube Downloader, AI Chat, File Upload, dan Deploy Simulator." />
+  <meta property="og:image"       content="https://files.catbox.moe/nae4ol.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url"         content="https://zerosozoo.vercel.app" />
+  <meta property="og:site_name"   content="ZeroSozoo" />
+  <meta property="og:locale"      content="id_ID" />
+
+  <!-- ─── Twitter Card ───────────────────────────────────── -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="ZeroSozoo - All-in-One Liquid Tools" />
+  <meta name="twitter:description" content="Premium All-in-One Web Suite dengan Liquid Glass aesthetic." />
+  <meta name="twitter:image"       content="https://files.catbox.moe/nae4ol.png" />
+
+  <!-- ─── PWA Manifest (inline) ──────────────────────────── -->
+  <meta name="mobile-web-app-capable"       content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title"   content="ZeroSozoo" />
+
+  <!-- ─── Stylesheets ────────────────────────────────────── -->
+  <link rel="stylesheet" href="styles/theme.css" />
+  <link rel="stylesheet" href="styles/layout.css" />
+
+  <!-- ─── Preconnect for Google Fonts ────────────────────── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- ─── Critical Inline Style (prevent FOUC) ───────────── -->
+  <style>
+    html, body { background: #0a0b0f; }
+    #app-loading {
+      position: fixed;
+      inset: 0;
+      background: #0a0b0f;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      z-index: 9999;
+      transition: opacity 0.5s ease;
+    }
+    #app-loading.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .loading-logo {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      animation: floatUp 2s ease-in-out infinite;
+      object-fit: contain;
+    }
+    .loading-text {
+      font-family: Georgia, serif;
+      font-size: 1.3rem;
+      color: rgba(240,242,255,0.9);
+      letter-spacing: -0.01em;
+    }
+    .loading-text span { color: #6366f1; }
+    .loading-dots {
+      display: flex;
+      gap: 6px;
+    }
+    .loading-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #6366f1;
+      animation: pulse 1.2s ease-in-out infinite;
+    }
+    .loading-dot:nth-child(2) { animation-delay: 0.2s; }
+    .loading-dot:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes floatUp {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-8px); }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.3; transform: scale(0.8); }
+      50%       { opacity: 1;   transform: scale(1);   }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ─── Loading Screen ─────────────────────────────────── -->
+  <div id="app-loading" role="status" aria-label="Loading ZeroSozoo">
+    <img
+      src="https://files.catbox.moe/nae4ol.png"
+      alt="ZeroSozoo"
+      class="loading-logo"
+      onerror="this.style.display='none'"
+    />
+    <div class="loading-text">Zero<span>Sozoo</span></div>
+    <div class="loading-dots" aria-hidden="true">
+      <div class="loading-dot"></div>
+      <div class="loading-dot"></div>
+      <div class="loading-dot"></div>
+    </div>
+  </div>
+
+  <!-- ─── App Root ───────────────────────────────────────── -->
+  <div id="app" role="main" aria-label="ZeroSozoo Application"></div>
+
+  <!-- ─── Module Entry Point ─────────────────────────────── -->
+  <script type="module" src="scripts/main.js"></script>
+
+  <!-- ─── Loading Screen Dismissal ───────────────────────── -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const loader = document.getElementById('app-loading');
+      // Small delay to ensure fonts and assets have a moment to load
+      setTimeout(() => {
+        loader.classList.add('hidden');
+        setTimeout(() => loader.remove(), 500);
+      }, 800);
+    });
+  </script>
+</body>
+</html>
